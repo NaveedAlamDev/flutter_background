@@ -139,4 +139,12 @@ class IsolateHolderService : Service() {
         cleanupService()
         stopSelf()
     }
+
+    override fun onTimeout(startId: Int) {
+        // Call parent implementation first
+        super.onTimeout(startId)
+        android.util.Log.d(TAG, "Timeout called")
+        // Stop the service
+        stopSelf()
+    }
 }
